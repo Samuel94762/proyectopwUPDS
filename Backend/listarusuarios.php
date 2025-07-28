@@ -54,12 +54,8 @@ try {
     </style>
 </head>
 <body>
+<?php include('../components/header.html'); ?>
 
-<nav>
-    <a href="homeADM.php">INICIO</a>
-    <a href="listarusuarios.php">LISTAR USUARIOS</a>
-    <a href="cerrarsesion.php">SALIR</a>
-</nav>
 
 <div class="container">
     <h2>Lista de Usuarios</h2>

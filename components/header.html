@@ -1,0 +1,120 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+
+<style>
+  .navbar-custom {
+    background-color: #6c5ce7;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-custom .nav-link,
+  .navbar-custom .navbar-brand,
+  .navbar-custom .dropdown-toggle {
+    color: #fff;
+  }
+
+  .navbar-custom .nav-link:hover,
+  .navbar-custom .dropdown-item:hover {
+    color: #dfe6e9;
+    background-color: transparent;
+  }
+
+  #menu-categorias,
+  #lista-cursos {
+    background-color: white;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 1000;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    min-width: 150px;
+    display: none;
+  }
+
+  #menu-categorias div,
+  #lista-cursos a {
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    display: block;
+    color: #2d3436;
+  }
+
+  #menu-categorias div:hover,
+  #lista-cursos a:hover {
+    background-color: #f1f2f6;
+  }
+
+  .perfil img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .perfil-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+</style>
+
+<!-- Este es el header.html modificado -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+      <!-- Botón Inicio (apunta a homeADM.php en Backend) -->
+      <a href="homeADM.php" class="btn btn-outline-light me-2">Inicio</a>
+
+      <!-- Menú Hamburguesa -->
+      <button id="hamburguesa" class="btn btn-outline-light me-2" type="button">
+        ☰ Categorías
+      </button>
+      <div id="menu-categorias"></div>
+
+      <!-- Dropdown Mis Cursos -->
+      <div class="dropdown me-3">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownCursos">
+          Mis Cursos
+        </button>
+        <div id="lista-cursos" class="dropdown-menu">
+          <a class="dropdown-item" href="mis_cursos.html">Ver todos</a>
+        </div>
+      </div>
+
+      <!-- Perfil + Cerrar sesión -->
+      <div class="perfil-btns ms-auto">
+        <a href="mi_cuenta.php">
+          <img src="assets/img/perfil.png" alt="Perfil" />
+        </a>
+        <a href="cerrarsesion.php" class="btn btn-light btn-sm">
+          Cerrar sesión
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+  // Categorías (menú hamburguesa)
+  document.getElementById("hamburguesa").addEventListener("click", () => {
+    const menu = document.getElementById("menu-categorias");
+    menu.style.display = menu.style.display === "none" ? "block" : "none";
+
+    fetch("/api/categorias.php")
+      .then((response) => response.json())
+      .then((data) => {
+        menu.innerHTML = data
+          .map((c) => `<div>${c.nombre}</div>`)
+          .join("");
+      });
+  });
+
+  // Mis Cursos dropdown
+  document
+    .getElementById("dropdownCursos")
+    .addEventListener("click", () => {
+      const lista = document.getElementById("lista-cursos");
+      lista.style.display = lista.style.display === "none" ? "block" : "none";
+    });
+</script>
