@@ -5,7 +5,6 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idr'] != 1) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,13 +29,10 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idr'] != 1) {
     }
 </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="homeADM.php">INICIO</a>
-    <a href="listarusuarios.php">LISTAR USUARIOS</a>
-    <a href="cerrarsesion.php">SALIR</a>
-</nav>
+<?php include('../components/header.html'); ?>
 
 <div class="container">
     <h2>Bienvenido Admin, <?php echo htmlspecialchars($_SESSION['usuario']); ?></h2>
