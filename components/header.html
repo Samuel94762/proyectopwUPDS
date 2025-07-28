@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Menú hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Logo / Marca -->
+    <a class="navbar-brand" href="#">Mi Plataforma</a>
+
+    <!-- Contenido del navbar -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Dropdown Categorías -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown">
+            Categorías
+          </a>
+          <ul class="dropdown-menu" id="listaCategorias">
+            <!-- Se llenará dinámicamente -->
+          </ul>
+        </li>
+
+        <!-- Dropdown Mis Cursos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="misCursosDropdown" role="button" data-bs-toggle="dropdown">
+            Mis Cursos
+          </a>
+          <ul class="dropdown-menu" id="listaMisCursos">
+            <li><a class="dropdown-item" href="mis_cursos.html">Ver todos</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Ícono de perfil -->
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="perfilDropdown" role="button" data-bs-toggle="dropdown">
+            <img src="img/perfil.png" alt="Perfil" width="30" height="30" class="rounded-circle" />
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+            <li><a class="dropdown-item" href="../Backend/logout.php">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+fetch('../Backend/categorias.php')
+  .then(res => res.json())
+  .then(data => {
+    const ul = document.getElementById('listaCategorias');
+    data.forEach(cat => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a class="dropdown-item" href="#">${cat.nombre}</a>`;
+      ul.appendChild(li);
+    });
+  });
+</script>
