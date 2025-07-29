@@ -8,7 +8,7 @@ $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD']);
 
 try {
     $conn = new PDO(
-        "mysql:host={$_ENV['DB_HOST']};port=3307;dbname={$_ENV['DB_NAME']}", 
+        "mysql:host={$_ENV['DB_HOST']};port=3306;dbname={$_ENV['DB_NAME']}", 
         $_ENV['DB_USER'], 
         $_ENV['DB_PASSWORD']
     );
