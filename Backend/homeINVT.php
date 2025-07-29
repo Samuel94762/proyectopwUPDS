@@ -31,7 +31,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['idr'] != 2) {
 </style>
 </head>
 <body>
-
+<?php include('../components/headerINVT.html'); ?>
 <nav>
     <a href="homeInvt.php">INICIO</a>
     <a href="cerrarsesion.php">SALIR</a>
