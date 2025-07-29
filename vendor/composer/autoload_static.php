@@ -18,10 +18,14 @@ class ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Sample\\' => 7,
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'PhpOption\\' => 10,
+            'PayPalHttp\\' => 11,
+            'PayPalCheckoutSdk\\' => 18,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
         'G' => 
@@ -47,9 +51,25 @@ class ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Sample\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paypal/paypal-checkout-sdk/samples',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'PayPalHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paypal/paypalhttp/lib/PayPalHttp',
+        ),
+        'PayPalCheckoutSdk\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paypal/paypal-checkout-sdk/lib/PayPalCheckoutSdk',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
@@ -62,6 +82,16 @@ class ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PayPal' => 
+            array (
+                0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
+            ),
         ),
     );
 
@@ -79,6 +109,7 @@ class ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54::$prefixesPsr0;
             $loader->classMap = ComposerStaticIniteee9fb53826be0db5352d1f22df4cd54::$classMap;
 
         }, null, ClassLoader::class);

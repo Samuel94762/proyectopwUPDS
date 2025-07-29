@@ -1,0 +1,22 @@
+<form action="../Backend/valoraciones.php" method="POST" class="card p-3 shadow-lg mt-4">
+  <h5 class="mb-3">Valora este curso</h5>
+
+  <div class="mb-3">
+    <label for="puntuacion" class="form-label">Puntuación:</label>
+    <select class="form-select" name="puntuacion" required>
+      <option value="5">★★★★★</option>
+      <option value="4">★★★★☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="1">★☆☆☆☆</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="comentario" class="form-label">Comentario:</label>
+    <textarea class="form-control" name="comentario" rows="3" placeholder="Escribe tu opinión..." required></textarea>
+  </div>
+
+  <input type="hidden" name="idc" value=""> <!-- ID del curso -->
+  <button type="submit" class="btn btn-success w-100">Enviar valoración</button>
+</form>
